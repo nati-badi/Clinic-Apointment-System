@@ -32,7 +32,6 @@ export const createAppointment = async (req: AuthRequest, res: Response): Promis
       return;
     }
 
-    // Basic date validation
     const appointmentDate = new Date(date);
     if (isNaN(appointmentDate.getTime())) {
       res.status(400).json({ message: 'Invalid date format' });

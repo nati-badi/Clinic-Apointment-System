@@ -23,7 +23,6 @@ export default function CreateAppointmentModal({ isOpen, onClose, onSuccess }: C
     e.preventDefault();
     setError('');
     
-    // Basic validation
     const appointmentDate = new Date(date);
     if (appointmentDate < new Date()) {
       setError('Please select a future date and time');
@@ -44,7 +43,6 @@ export default function CreateAppointmentModal({ isOpen, onClose, onSuccess }: C
       
       onSuccess();
       onClose();
-      // Reset form
       setPatientName('');
       setDoctorName('');
       setDate('');
@@ -76,7 +74,7 @@ export default function CreateAppointmentModal({ isOpen, onClose, onSuccess }: C
                 value={patientName}
                 onChange={e => setPatientName(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
-                placeholder="John Doe"
+                placeholder="Enter patient name"
               />
             </div>
             
@@ -88,7 +86,7 @@ export default function CreateAppointmentModal({ isOpen, onClose, onSuccess }: C
                 value={doctorName}
                 onChange={e => setDoctorName(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
-                placeholder="Dr. Smith"
+                placeholder="Enter doctor name"
               />
             </div>
             

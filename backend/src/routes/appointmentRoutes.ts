@@ -4,7 +4,7 @@ import { requireAuth } from '../middlewares/authMiddleware';
 
 const router = Router();
 
-router.use(requireAuth); // Protect all routes below
+router.use(requireAuth);
 
 router.get('/', getAppointments);
 router.post('/', createAppointment);
