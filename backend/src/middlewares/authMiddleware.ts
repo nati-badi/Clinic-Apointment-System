@@ -5,7 +5,7 @@ export interface AuthRequest extends Request {
   user?: { id: string; username: string };
 }
 
-const JWT_SECRET = process.env.JWT_SECRET || 'super_secret_clinic_key_for_demo';
+const JWT_SECRET = process.env.JWT_SECRET || 'jwt_secret_change_me';
 
 export const requireAuth = (req: AuthRequest, res: Response, next: NextFunction): void => {
   const authHeader = req.headers.authorization;
