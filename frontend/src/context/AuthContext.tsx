@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check for token on initial load
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
       setToken(storedToken);
