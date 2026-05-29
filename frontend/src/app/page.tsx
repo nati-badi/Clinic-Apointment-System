@@ -20,7 +20,6 @@ export default function Home() {
         const res = await fetch("http://localhost:5000/api/auth/me", {
           method: "GET",
           headers: {
-            "method": "GET",
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
           }

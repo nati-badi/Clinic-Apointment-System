@@ -20,16 +20,16 @@ export default function AppointmentsDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const { token } = useAuth();
   const router = useRouter();
 
   const loadAppointments = useCallback(async () => {
     if (!token) return;
-    
+
     setLoading(true);
     setError('');
-    
+
     try {
       const data = await fetchWithAuth('/appointments');
       setAppointments(data);
@@ -51,7 +51,7 @@ export default function AppointmentsDashboard() {
     loadAppointments();
   }, [token, loadAppointments, router]);
 
-  if (!token) return null; // Prevent flicker before redirect
+  if (!token) return null;
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -60,8 +60,8 @@ export default function AppointmentsDashboard() {
           <h1 className="text-2xl font-bold text-gray-900">Appointments Dashboard</h1>
           <p className="text-gray-500 text-sm mt-1">Manage and view all your clinic appointments</p>
         </div>
-        
-        <button 
+
+        <button
           onClick={() => setIsModalOpen(true)}
           className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-md transition font-medium shadow-sm flex items-center justify-center gap-2"
         >
@@ -84,7 +84,7 @@ export default function AppointmentsDashboard() {
           </div>
           <h3 className="text-lg font-medium text-gray-900 mb-1">No appointments yet</h3>
           <p className="text-gray-500 mb-6 max-w-sm mx-auto">Get started by creating your first clinic appointment.</p>
-          <button 
+          <button
             onClick={() => setIsModalOpen(true)}
             className="text-primary hover:text-primary-dark font-medium underline-offset-4 hover:underline"
           >
@@ -99,9 +99,9 @@ export default function AppointmentsDashboard() {
         </div>
       )}
 
-      <CreateAppointmentModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <CreateAppointmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         onSuccess={loadAppointments}
       />
     </div>
